@@ -1,2 +1,4 @@
 USE ctam86assign2db;
 LOAD DATA LOCAL INFILE './loaddatafall2018.txt' INTO TABLE product FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\n';
+
+SELECT * FROM product;
