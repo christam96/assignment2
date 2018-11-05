@@ -6,3 +6,5 @@ SHOW COLUMNS IN product;
 
 INSERT INTO product (ProuctID, Description, CostPerItem, QuantityOnHand) VALUES (66, 'Elbow pads', 14.25, 120);
 INSERT INTO product (ProuctID, Description, CostPerItem, QuantityOnHand) VALUES (88, 'Skates', 225, 80);
+
+SELECT * FROM product;
