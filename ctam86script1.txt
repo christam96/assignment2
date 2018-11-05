@@ -1,0 +1,23 @@
+-- CS3319 Assignment 2: Script 1
+-- Student Name: Christopher Tam
+-- Student Number: 250803892
+
+-- build the database
+SHOW databases;
+DROP DATABASE IF EXISTS ctam86assign2db;
+CREATE DATABASE ctam86assign2db;
+USE ctam86assign2db;
+
+-- ensure TA has access to database
+GRANT USAGE ON *.* TO 'ta'@'localhost';
+DROP USER 'ta'@'localhost';
+CREATE USER 'ta'@'localhost' IDENTIFIED BY 'cs3319';
+GRANT ALL PRIVILEGES ON yourwesternuseridassign2db.* TO 'ta'@'localhost';
+FLUSH PRIVILEGES;
+
+-- create the product, sales agent, and customer tables
+SHOW TABLES;
+CREATE TABLE salesAgent (AgentID VARCHAR(2) NOT NULL, FirstName VARCHAR(30), LastName VARCHAR(30), WorkingCity VARCHAR(15), Commission INT, PRIMARY KEY (AgentID));
+CREATE TABLE customer (CustomerID VARCHAR(2) NOT NULL, FirstName VARCHAR(30), LastName VARCHAR(30), City VARCHAR(15), PhoneNumber INT, PRIMARY KEY (CustomerID), FOREIGN KEY (AgentID) REFERENCES salesAGent(agentID));
+CREATE TABLE product (ProductID VARCHAR(2) NOT NULL, Description VARCHAR(20), CostPerItem INT, QuantityOnHand INT, PRIMARY KEY (ProductID), FOREIGN KEY (CustomerID) REFERENCES customer(CustomerID));
+SHOW TABLES;
