@@ -35,3 +35,9 @@ SELECT * FROM product;
 SELECT * FROM salesAgent;
 SELECT * FROM customer;
 SELECT * FROM purchasingInfo;
+
+UPDATE customer SET FirstName = "Wonder Woman" WHERE FirstName = "Super" AND LastName = "Man";
+
+
+
+SELECT * FROM customer;
