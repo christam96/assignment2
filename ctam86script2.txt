@@ -42,3 +42,4 @@ UPDATE purchasingInfo SET Quantity = 5 WHERE FirstName IN (SELECT CustomerID FRO
 
 
 SELECT * FROM customer;
+SELECT * FROM purchasingInfo;
