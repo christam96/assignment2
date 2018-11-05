@@ -3,3 +3,6 @@ LOAD DATA LOCAL INFILE './loaddatafall2018.txt' INTO TABLE product FIELDS TERMIN
 
 SELECT * FROM product;
 SHOW COLUMNS IN product;
+
+INSERT INTO product (ProuctID, Description, CostPerItem, QuantityOnHand) VALUES (66, 'Elbow pads', 14.25, 120);
+INSERT INTO product (ProuctID, Description, CostPerItem, QuantityOnHand) VALUES (88, 'Skates', 225, 80);
