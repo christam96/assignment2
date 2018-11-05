@@ -37,7 +37,6 @@ SELECT * FROM customer;
 SELECT * FROM purchasingInfo;
 
 UPDATE customer SET FirstName = "Wonder Woman" WHERE FirstName = "Super" AND LastName = "Man";
---UPDATE purchasingInfo SET Quantity = 5 WHERE FirstName IN (SELECT CustomerID FROM customer WHERE FirstName = "Sideshow");
 
 
 
