@@ -24,4 +24,5 @@ INSERT INTO customer (CustomerID, FirstName, LastName, City, PhoneNumber, AgentI
 
 
 SELECT * FROM product;
+SELECT * FROM salesAgent;
 SELECT * FROM customer;
