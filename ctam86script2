@@ -1,0 +1,1 @@
+LOAD DATA LOCAL INFILE 'C:\Users\chris\Desktop\CS3319 Assignment 2' INTO TABLE table_name FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\n' (username);
