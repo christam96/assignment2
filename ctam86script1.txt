@@ -19,5 +19,6 @@ FLUSH PRIVILEGES;
 SHOW TABLES;
 CREATE TABLE salesAgent (AgentID VARCHAR(2) NOT NULL, FirstName VARCHAR(30), LastName VARCHAR(30), WorkingCity VARCHAR(15), Commission INT, PRIMARY KEY (AgentID));
 CREATE TABLE customer (CustomerID VARCHAR(2) NOT NULL, FirstName VARCHAR(30), LastName VARCHAR(30), City VARCHAR(15), PhoneNumber INT, PRIMARY KEY (CustomerID), AgentID VARCHAR(2) NOT NULL, FOREIGN KEY (AgentID) REFERENCES salesAgent(AgentID));
-CREATE TABLE product (ProductID VARCHAR(2) NOT NULL, Description VARCHAR(20), CostPerItem INT, QuantityOnHand INT, PRIMARY KEY (ProductID), CustomerID VARCHAR(2) NOT NULL, FOREIGN KEY (CustomerID) REFERENCES customer(CustomerID));
+CREATE TABLE product (ProductID VARCHAR(2) NOT NULL, Description VARCHAR(20), CostPerItem INT, QuantityOnHand INT, PRIMARY KEY (ProductID));
+CREATE TABLE customerPurchaseProduct (CustomerID VARCHAR(2) NOT NULL, ProductID VARCHAR(2), FOREIGN KEY (CustomerID) REFERENCES customer(CustomerID), FOREIGN KEY (ProductID) REFERENCES product(ProductID), Quantity INT);
 SHOW TABLES;
