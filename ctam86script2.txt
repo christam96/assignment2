@@ -20,9 +20,18 @@ INSERT INTO customer (CustomerID, FirstName, LastName, City, PhoneNumber, AgentI
 INSERT INTO customer (CustomerID, FirstName, LastName, City, PhoneNumber, AgentID) VALUES (10, 'Barney', 'Rubble', 'Bedrock', '777-1234', 11);
 INSERT INTO customer (CustomerID, FirstName, LastName, City, PhoneNumber, AgentID) VALUES (14, 'Peter', 'Griffens', 'Providence', '987-4567', 99);
 
-
-
+INSERT INTO purchasingInfo (CustomerID, ProductID, Quantity) VALUES (21, 99, 20);
+INSERT INTO purchasingInfo (CustomerID, ProductID, Quantity) VALUES (21, 12, 14);
+INSERT INTO purchasingInfo (CustomerID, ProductID, Quantity) VALUES (21, 66, 10);
+INSERT INTO purchasingInfo (CustomerID, ProductID, Quantity) VALUES (31, 99, 1);
+INSERT INTO purchasingInfo (CustomerID, ProductID, Quantity) VALUES (31, 12, 2);
+INSERT INTO purchasingInfo (CustomerID, ProductID, Quantity) VALUES (31, 78, 4);
+INSERT INTO purchasingInfo (CustomerID, ProductID, Quantity) VALUES (31, 66, 2);
+INSERT INTO purchasingInfo (CustomerID, ProductID, Quantity) VALUES (14, 66, 2);
+INSERT INTO purchasingInfo (CustomerID, ProductID, Quantity) VALUES (14, 78, 2);
+INSERT INTO purchasingInfo (CustomerID, ProductID, Quantity) VALUES (15, 66, 19);
 
 SELECT * FROM product;
 SELECT * FROM salesAgent;
 SELECT * FROM customer;
+SELECT * FROM purchasingInfo;
