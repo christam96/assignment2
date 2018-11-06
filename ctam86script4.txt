@@ -25,7 +25,7 @@ SELECT * FROM v1;
 SELECT * FROM v1 WHERE TotalCost > 100;
 
 -- Delete the product that you made up using your product's description
-
+DELETE FROM product WHERE DESCRIPTION = "Skates";
 
 -- Prove that the delete worked
 
