@@ -30,7 +30,7 @@ SELECT LastName, Description, Quantity FROM customer t1 INNER JOIN purchasingInf
 SELECT SUM(Quantity) As 'Homers Total Purchases: ' FROM purchasingInfo WHERE CustomerID = (SELECT CustomerID FROM customer WHERE FirstName = "Homer");
 
 -- Query 9: For any customer who has actually purchased products, find the total number of products purchased by each customer, print out the first and last name of the customer and their total number of  purchases
-SELECT COUNT(ProductID), LastName, FirstName, SUM(Quantity) FROM purchasingInfo t1 INNER JOIN customer t2 ON t1.CustomerID = t2.CustomerID GROUP BY t1.CustomerID ;
+SELECT COUNT(ProductID) As 'Total Number of Products Purchased', LastName, FirstName, SUM(Quantity) As 'Total Number of Purchases' FROM purchasingInfo t1 INNER JOIN customer t2 ON t1.CustomerID = t2.CustomerID GROUP BY t1.CustomerID ;
 
 -- Query 10: List the descriptions and quantity on hand of any products that have not been purchased by anyone
 SELECT Description, QuantityOnHand FROM product WHERE ProductID NOT IN (SELECT ProductID FROM purchasingInfo);
