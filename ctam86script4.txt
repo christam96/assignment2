@@ -31,3 +31,7 @@ DELETE FROM product WHERE Description = "Skates";
 SELECT * FROM product;
 
 -- Delete all agents who are from Springfield
+DELETE FROM salesAgent WHERE WorkingCity = "Springfield";
+
+-- Prove that the delete worked
+SELECT * FROM product;
