@@ -18,7 +18,7 @@ SELECT * FROM salesAgent ORDER BY WorkingCity;
 SELECT FirstName, LastName FROM customer WHERE City = "Springfield";
 
 -- Query 5: List the last name of all customers who deal with Regis
-SELECT LastName FROM customer WHERE AgentID = (SELECT FirstName FROM salesAgent WHERE FirstName = "Regis");
+SELECT LastName FROM customer WHERE AgentID = (SELECT AgentID FROM salesAgent WHERE FirstName = "Regis");
 
 
 -- Query 6: List the description of any product with the letters "pad" or "Pad" in the description name
