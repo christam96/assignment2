@@ -42,3 +42,4 @@ UPDATE customer SET City = "Boston" WHERE AgentID = (SELECT AgentID FROM salesAg
 
 SELECT * FROM customer;
 SELECT * FROM purchasingInfo;
+SELECT * FROM customer;
