@@ -1,4 +1,4 @@
--- CS3319 Assignment 2: Script 1
+-- CS3319 Assignment 2: Script 2
 -- Student Name: Christopher Tam
 -- Student Number: 250803892
 

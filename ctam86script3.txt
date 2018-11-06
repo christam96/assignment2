@@ -1,4 +1,4 @@
--- CS3319 Assignment 2: Script 1
+-- CS3319 Assignment 2: Script 3
 -- Student Name: Christopher Tam
 -- Student Number: 250803892
 
@@ -17,9 +17,8 @@ SELECT * FROM salesAgent ORDER BY WorkingCity;
 -- Query 4: Show the first and last name of all customers from Springfield
 SELECT FirstName, LastName FROM customer WHERE City = "Springfield";
 
-
 -- Query 5: List the last name of all customers who deal with Regis
-
+SELECT LastName FROM customer WHERE AgentID = (SELECT FirstName FROM salesAgent WHERE FirstName = "Regis");
 
 
 -- Query 6: List the description of any product with the letters "pad" or "Pad" in the description name
