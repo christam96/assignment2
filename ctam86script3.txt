@@ -9,6 +9,6 @@ USE ctam86assign2db;
 SELECT Description FROM product;
 
 -- Query 2:
-
+SELECT DISTINCT City FROM customer;
 
 -- Query 3:
