@@ -1,3 +1,10 @@
+-- CS3319 Assignment 2: Script 4
+-- Student Name: Christopher Tam
+-- Student Number: 250803892
+
+-- specify which database to make changes to
+USE ctam86assign2db;
+
 -- show all data from each table before doing next steps
 SELECT * FROM product;
 SELECT * FROM salesAgent;
