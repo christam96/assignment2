@@ -15,7 +15,7 @@ SELECT * FROM purchasingInfo;
 -- Create a view that shows the customer first name and last name, the description of the products they
 -- have bought, the quantity of the products they have bought, the price of the product and a total cost
 -- to purchase that many items of each product. Order the view by the last name
-CREATE VIEW v1 AS SELECT ANY FirstName, LastName, Description, Quantity, CostPerItem, SUM(CostPerItem*Quantity) As 'Total Cost' FROM customer t1 INNER JOIN purchasingInfo t2 ON t1.CustomerID = t2.CustomerID INNER JOIN product t3 ON t2.ProductID = t3.ProductID ORDER BY LastName;
+CREATE VIEW v1 AS SELECT FirstName, LastName, Description, Quantity, CostPerItem, SUM(CostPerItem*Quantity) As 'Total Cost' FROM customer t1 INNER JOIN purchasingInfo t2 ON t1.CustomerID = ANY t2.CustomerID INNER JOIN product t3 ON t2.ProductID = ANY t3.ProductID ORDER BY LastName;
 
 -- Prove that your view works by selecting all the rows from it
 SELECT * FROM v1;
