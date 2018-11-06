@@ -21,7 +21,7 @@ SELECT FirstName, LastName FROM customer WHERE City = "Springfield";
 SELECT LastName FROM customer WHERE AgentID = (SELECT AgentID FROM salesAgent WHERE FirstName = "Regis");
 
 -- Query 6: List the description of any product with the letters "pad" or "Pad" in the description name
-SELECT Description FROM product WHERE Description LIKE "%pad";
+SELECT Description FROM product WHERE Description LIKE "%pad%";
 
 -- Query 7: For any customer who has actually purchased products, list the last name of each customer, the description of each product they have purchase and the quantity they have purchased of that product
 
