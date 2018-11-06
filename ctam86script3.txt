@@ -44,8 +44,8 @@ SELECT t1.FirstName As "Agent First Name", t1.LastName As "Agent Last Name", t2.
 -- Query 13: List the total number of knee pads that have been purchase. Give the result a nice title.
 SELECT SUM(Quantity) As 'Total Number of Knee Pads Purchased: ' FROM purchasingInfo WHERE ProductID = 78;
 
--- Query 14: Find all products  (description) which have been purchased by more than 3 customers
-
+-- Query 14: Find all products (description) which have been purchased by more than 3 customers
+SELECT Description FROM product WHERE ProductID = (SELECT ProductID, COUNT(*) As cnt FROM purchasingINFO GROUP BY ProductID HAVING cnt > 3);
 
 -- Query 15: Find the first name and last name of all agents who deal with customers that have purchased knee pads.
 
