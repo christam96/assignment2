@@ -18,9 +18,9 @@ SELECT * FROM purchasingInfo;
 
 -- CREATE VIEW v1 AS SELECT FirstName, LastName, Description, Quantity, CostPerItem, SUM(CostPerItem*Quantity) As 'Total Cost' FROM customer t1 INNER JOIN purchasingInfo t2 ON t1.CustomerID = t2.CustomerID INNER JOIN product t3 ON t2.ProductID = t3.ProductID ORDER BY LastName;
 
-CREATE VIEW v1 AS SELECT FirstName, LastName, Description, Quantity, CostPerItem, (CostPerItem * Quantity) AS 'Total Cost' FROM customer, purchasingInfo, product WHERE customer.CustomerID = purchasingInfo.CustomerID AND product.ProductID = purchasingInfo.ProductID ORDER BY customer.LastName;
+CREATE VIEW v1 AS SELECT FirstName, LastName, Description, Quantity, CostPerItem, (CostPerItem * Quantity) As 'Total Cost' FROM customer, purchasingInfo, product WHERE customer.CustomerID = purchasingInfo.CustomerID AND product.ProductID = purchasingInfo.ProductID ORDER BY customer.LastName;
 
--- CREATE VIEW v1 AS SELECT customer.FirstName, customer.LastName, product.Description, purchasingInfo.Quantity, product.CostPerItem, (product.CostPerItem * purchasingInfo.Quantity) AS 'Total Cost' FROM customer, purchasingInfo, product WHERE customer.CustomerID = purchasingInfo.CustomerID AND product.ProductID = purchasingInfo.ProductID ORDER BY customer.LastName;
+
 
 -- Prove that your view works by selecting all the rows from it
 SELECT * FROM v1;
