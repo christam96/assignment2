@@ -24,7 +24,7 @@ SELECT LastName FROM customer WHERE AgentID = (SELECT AgentID FROM salesAgent WH
 SELECT Description FROM product WHERE Description LIKE "%pad%";
 
 -- Query 7: For any customer who has actually purchased products, list the last name of each customer, the description of each product they have purchase and the quantity they have purchased of that product
-
+SELECT LastName, Description, Quantity FROM customer t1 INNER JOIN purchasingInfo t2 ON t1.CustomerID = t2.CustomerID INNER JOIN product t3 ON t3.ProductID = t2.ProductID;
 
 -- Query 8: Find the total number of products purchased by Homer
 
