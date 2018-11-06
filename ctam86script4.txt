@@ -1,0 +1,5 @@
+-- show all data from each table before doing next steps
+SELECT * FROM product;
+SELECT * FROM salesAgent;
+SELECT * FROM customer;
+SELECT * FROM purchasingInfo;

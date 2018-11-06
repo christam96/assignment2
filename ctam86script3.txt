@@ -49,9 +49,3 @@ SELECT Description, COUNT(*) As Count FROM product t1 INNER JOIN purchasingInfo 
 
 -- Query 15: Find the first name and last name of all agents who deal with customers that have purchased knee pads.
 SELECT FirstName, LastName from salesAgent WHERE AgentID = ANY (SELECT AgentID from customer WHERE CustomerID = ANY (SELECT CustomerID from purchasingInfo WHERE ProductID = 66 GROUP BY ProductID));
-
-
-SELECT * FROM product;
-SELECT * FROM salesAgent;
-SELECT * FROM customer;
-SELECT * FROM purchasingInfo;
