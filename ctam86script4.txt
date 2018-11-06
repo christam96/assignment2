@@ -25,9 +25,9 @@ SELECT * FROM v1;
 SELECT * FROM v1 WHERE TotalCost > 100;
 
 -- Delete the product that you made up using your product's description
-DELETE FROM product WHERE DESCRIPTION = "Skates";
+DELETE FROM product WHERE Description = "Skates";
 
 -- Prove that the delete worked
-
+SELECT * FROM product;
 
 -- Delete all agents who are from Springfield
