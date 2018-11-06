@@ -15,7 +15,7 @@ SELECT DISTINCT City FROM customer;
 SELECT * FROM salesAgent ORDER BY WorkingCity;
 
 -- Query 4: Show the first and last name of all customers from Springfield
-SELECT FirstName AND LastName FROM customer WHERE City = "Springfield";
+SELECT FirstName, LastName FROM customer WHERE City = "Springfield";
 
 
 -- Query 5: List the last name of all customers who deal with Regis
