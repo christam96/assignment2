@@ -16,7 +16,7 @@ SELECT * FROM purchasingInfo;
 -- have bought, the quantity of the products they have bought, the price of the product and a total cost
 -- to purchase that many items of each product. Order the view by the last name
 
-CREATE VIEW v1 AS SELECT FirstName, LastName, Description, Quantity, CostPerItem, (CostPerItem * Quantity) As 'Total Cost' FROM customer, purchasingInfo, product WHERE customer.CustomerID = purchasingInfo.CustomerID AND product.ProductID = purchasingInfo.ProductID ORDER BY customer.LastName;
+CREATE VIEW v1 AS SELECT FirstName, LastName, Description, Quantity, CostPerItem, (CostPerItem * Quantity) As 'TotalCost' FROM customer, purchasingInfo, product WHERE customer.CustomerID = purchasingInfo.CustomerID AND product.ProductID = purchasingInfo.ProductID ORDER BY customer.LastName;
 
 -- Prove that your view works by selecting all the rows from it
 SELECT * FROM v1;
