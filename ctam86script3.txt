@@ -12,3 +12,4 @@ SELECT Description FROM product;
 SELECT DISTINCT City FROM customer;
 
 -- Query 3:
+SELECT * FROM salesAgent ORDER BY WorkingCity;
