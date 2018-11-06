@@ -16,17 +16,13 @@ SELECT * FROM purchasingInfo;
 -- have bought, the quantity of the products they have bought, the price of the product and a total cost
 -- to purchase that many items of each product. Order the view by the last name
 
--- CREATE VIEW v1 AS SELECT FirstName, LastName, Description, Quantity, CostPerItem, SUM(CostPerItem*Quantity) As 'Total Cost' FROM customer t1 INNER JOIN purchasingInfo t2 ON t1.CustomerID = t2.CustomerID INNER JOIN product t3 ON t2.ProductID = t3.ProductID ORDER BY LastName;
-
 CREATE VIEW v1 AS SELECT FirstName, LastName, Description, Quantity, CostPerItem, (CostPerItem * Quantity) As 'Total Cost' FROM customer, purchasingInfo, product WHERE customer.CustomerID = purchasingInfo.CustomerID AND product.ProductID = purchasingInfo.ProductID ORDER BY customer.LastName;
-
-
 
 -- Prove that your view works by selecting all the rows from it
 SELECT * FROM v1;
 
 -- Now select only the rows from the view (all columns from the view) where customers spent more than 100 dollars
-
+SELECT * FROM v1 WHERE TotalCost > 100;
 
 -- Delete the product that you made up using your product's description
 
