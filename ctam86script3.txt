@@ -2,6 +2,9 @@
 -- Student Name: Christopher Tam
 -- Student Number: 250803892
 
+-- specify which database to make changes to
+USE ctam86assign2db;
+
 -- Query 1:
 SELECT Description FROM product;
 
