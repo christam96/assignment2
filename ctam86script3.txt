@@ -27,7 +27,7 @@ SELECT Description FROM product WHERE Description LIKE "%pad%";
 SELECT LastName, Description, Quantity FROM customer t1 INNER JOIN purchasingInfo t2 ON t1.CustomerID = t2.CustomerID INNER JOIN product t3 ON t3.ProductID = t2.ProductID;
 
 -- Query 8: Find the total number of products purchased by Homer
-SELECT FORMAT(SUM(Quantity)) FROM purchasingInfo WHERE CustomerID = (SELECT FirstName FROM customer WHERE FirstName = "Homer");
+SELECT FORMAT(SUM(Quantity)) FROM purchasingInfo WHERE CustomerID = (SELECT CustomerID FROM customer WHERE FirstName = "Homer");
 
 -- Query 9: For any customer who has actually purchased products, find the total number of products purchased by each customer, print out the first and last name of the customer and their total number of  purchases
 
