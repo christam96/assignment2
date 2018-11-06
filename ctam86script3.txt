@@ -1,0 +1,11 @@
+-- CS3319 Assignment 2: Script 1
+-- Student Name: Christopher Tam
+-- Student Number: 250803892
+
+-- Query 1:
+SELECT Description FROM product;
+
+-- Query 2:
+
+
+-- Query 3:
