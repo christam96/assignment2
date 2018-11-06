@@ -35,6 +35,22 @@ SELECT COUNT(ProductID) As 'Total Number of Products Purchased', LastName, First
 -- Query 10: List the descriptions and quantity on hand of any products that have not been purchased by anyone
 SELECT Description, QuantityOnHand FROM product WHERE ProductID NOT IN (SELECT ProductID FROM purchasingInfo);
 
+-- Query 11: List the description and quantity of any product that has not been purchase by Fred Flintstone
+SELECT Description, QuantityOnHand FROM product WHERE ProductID NOT IN (SELECT ProductID FROM purchasingInfo WHERE CustomerID = (SELECT CustomerID FROM customer WHERE FirstName = 'Fred' AND LastName = 'Flinstone'));
+
+-- Query 12: List the first and last name of any agent and customer where the agent deals with a customer from the same city as the agent.
+
+
+-- Query 13: List the total number of knee pads that have been purchase. Give the result a nice title.
+
+
+-- Query 14: Find all products  (description) which have been purchased by more than 3 customers
+
+
+-- Query 15: Find the first name and last name of all agents who deal with customers that have purchased knee pads.
+
+
+
 SELECT * FROM product;
 SELECT * FROM salesAgent;
 SELECT * FROM customer;
