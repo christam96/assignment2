@@ -1,0 +1,133 @@
+Warning: Using a password on the command line interface can be insecure.
+--------------
+SELECT Description FROM product
+--------------
+
+Description
+Bike
+Socks
+Elbow pads
+Knee Pads
+Skates
+Roller Blades
+Helmet
+--------------
+SELECT DISTINCT City FROM customer
+--------------
+
+City
+Boston
+Springfield
+Krypto
+Providence
+--------------
+SELECT * FROM salesAgent ORDER BY WorkingCity
+--------------
+
+AgentID	FirstName	LastName	WorkingCity	Commission
+33	David	Letterman	Bedrock	100
+11	Regis	Philbin	Boston	33
+22	Courtney	Cox	New York	25
+12	Rosie	Cox	Ottawa	50
+66	Rosie	ODonnell	Ottawa	100
+99	Hugh	Grant	Springfield	16
+8	Christopher	Tam	Vancouver	80
+--------------
+SELECT FirstName, LastName FROM customer WHERE City = "Springfield"
+--------------
+
+FirstName	LastName
+Monty	Burns
+Homer	Simpson
+Sideshow	Bob
+--------------
+SELECT LastName FROM customer WHERE AgentID = (SELECT AgentID FROM salesAgent WHERE FirstName = "Regis")
+--------------
+
+LastName
+Rubble
+Flinstone
+--------------
+SELECT Description FROM product WHERE Description LIKE "%pad%"
+--------------
+
+Description
+Elbow pads
+Knee Pads
+--------------
+SELECT LastName, Description, Quantity FROM customer t1 INNER JOIN purchasingInfo t2 ON t1.CustomerID = t2.CustomerID INNER JOIN product t3 ON t3.ProductID = t2.ProductID
+--------------
+
+LastName	Description	Quantity
+Griffens	Elbow pads	19
+Flinstone	Elbow pads	2
+Flinstone	Knee Pads	2
+Simpson	Helmet	20
+Simpson	Socks	14
+Simpson	Elbow pads	10
+Bob	Helmet	5
+Bob	Socks	5
+Bob	Knee Pads	5
+Bob	Elbow pads	5
+--------------
+SELECT SUM(Quantity) As 'Homers Total Purchases: ' FROM purchasingInfo WHERE CustomerID = (SELECT CustomerID FROM customer WHERE FirstName = "Homer")
+--------------
+
+Homers Total Purchases: 
+44
+--------------
+SELECT COUNT(ProductID) As 'Total Number of Products Purchased', LastName, FirstName, SUM(Quantity) As 'Total Number of Purchases' FROM purchasingInfo t1 INNER JOIN customer t2 ON t1.CustomerID = t2.CustomerID GROUP BY t1.CustomerID
+--------------
+
+Total Number of Products Purchased	LastName	FirstName	Total Number of Purchases
+1	Griffens	Peter	19
+2	Flinstone	Fred	4
+3	Simpson	Homer	44
+4	Bob	Sideshow	20
+--------------
+SELECT Description, QuantityOnHand FROM product WHERE ProductID NOT IN (SELECT ProductID FROM purchasingInfo)
+--------------
+
+Description	QuantityOnHand
+Bike	200
+Skates	80
+Roller Blades	89
+--------------
+SELECT Description, QuantityOnHand FROM product WHERE ProductID NOT IN (SELECT ProductID FROM purchasingInfo WHERE CustomerID = (SELECT CustomerID FROM customer WHERE FirstName = 'Fred' AND LastName = 'Flinstone'))
+--------------
+
+Description	QuantityOnHand
+Bike	200
+Socks	100
+Skates	80
+Roller Blades	89
+Helmet	30
+--------------
+SELECT t1.FirstName As "Agent First Name", t1.LastName As "Agent Last Name", t2.FirstName As 'Customer First Name', t2.LastName As "Customer Last Name" FROM salesAgent t1 JOIN customer t2 ON t1.WorkingCity = t2.City
+--------------
+
+Agent First Name	Agent Last Name	Customer First Name	Customer Last Name
+Regis	Philbin	Barney	Rubble
+Hugh	Grant	Monty	Burns
+Regis	Philbin	Fred	Flinstone
+Hugh	Grant	Homer	Simpson
+Hugh	Grant	Sideshow	Bob
+--------------
+SELECT SUM(Quantity) As 'Total Number of Knee Pads Purchased: ' FROM purchasingInfo WHERE ProductID = 78
+--------------
+
+Total Number of Knee Pads Purchased: 
+7
+--------------
+SELECT Description, COUNT(*) As Count FROM product t1 INNER JOIN purchasingInfo t2 ON t1.ProductID = t2.ProductID GROUP BY Description HAVING Count > 3
+--------------
+
+Description	Count
+Elbow pads	4
+--------------
+SELECT FirstName, LastName from salesAgent WHERE AgentID = ANY (SELECT AgentID from customer WHERE CustomerID = ANY (SELECT CustomerID from purchasingInfo WHERE ProductID = 78 GROUP BY ProductID))
+--------------
+
+FirstName	LastName
+Regis	Philbin
+Rosie	ODonnell

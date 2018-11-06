@@ -1,0 +1,223 @@
+Warning: Using a password on the command line interface can be insecure.
+--------------
+LOAD DATA LOCAL INFILE './loaddatafall2018.txt' INTO TABLE product FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\n'
+--------------
+
+--------------
+INSERT INTO product (ProductID, Description, CostPerItem, QuantityOnHand) VALUES (66, 'Elbow pads', 14.25, 120)
+--------------
+
+--------------
+INSERT INTO product (ProductID, Description, CostPerItem, QuantityOnHand) VALUES (08, 'Skates', 225, 80)
+--------------
+
+--------------
+INSERT INTO salesAgent (AgentID, FirstName, LastName, WorkingCity, Commission) VALUES (99, 'Hugh', 'Grant', 'Springfield', 16)
+--------------
+
+--------------
+INSERT INTO salesAgent (AgentID, FirstName, LastName, WorkingCity, Commission) VALUES (22, 'Courtney', 'Cox', 'New York', 25)
+--------------
+
+--------------
+INSERT INTO salesAgent (AgentID, FirstName, LastName, WorkingCity, Commission) VALUES (66, 'Rosie', 'ODonnell', 'Ottawa', 100)
+--------------
+
+--------------
+INSERT INTO salesAgent (AgentID, FirstName, LastName, WorkingCity, Commission) VALUES (33, 'David', 'Letterman', 'Bedrock', 100)
+--------------
+
+--------------
+INSERT INTO salesAgent (AgentID, FirstName, LastName, WorkingCity, Commission) VALUES (11, 'Regis', 'Philbin', 'Boston', 33)
+--------------
+
+--------------
+INSERT INTO salesAgent (AgentID, FirstName, LastName, WorkingCity, Commission) VALUES (12, 'Rosie', 'Cox', 'Ottawa', 50)
+--------------
+
+--------------
+INSERT INTO salesAgent (AgentID, FirstName, LastName, WorkingCity, Commission) VALUES (08, 'Christopher', 'Tam', 'Vancouver', 80)
+--------------
+
+--------------
+INSERT INTO customer (CustomerID, FirstName, LastName, City, PhoneNumber, AgentID) VALUES (21, 'Homer', 'Simpson', 'Springfield', '686-8956', 99)
+--------------
+
+--------------
+INSERT INTO customer (CustomerID, FirstName, LastName, City, PhoneNumber, AgentID) VALUES (31, 'Sideshow', 'Bob', 'Springfield', '686-5555', 66)
+--------------
+
+--------------
+INSERT INTO customer (CustomerID, FirstName, LastName, City, PhoneNumber, AgentID) VALUES (12, 'Monty', 'Burns', 'Springfield', '789-0000', 99)
+--------------
+
+--------------
+INSERT INTO customer (CustomerID, FirstName, LastName, City, PhoneNumber, AgentID) VALUES (15, 'Fred', 'Flinstone', 'Bedrock', '777-1234', 11)
+--------------
+
+--------------
+INSERT INTO customer (CustomerID, FirstName, LastName, City, PhoneNumber, AgentID) VALUES (13, 'Super', 'Man', 'Krypto', '888-1234', 33)
+--------------
+
+--------------
+INSERT INTO customer (CustomerID, FirstName, LastName, City, PhoneNumber, AgentID) VALUES (10, 'Barney', 'Rubble', 'Bedrock', '777-1234', 11)
+--------------
+
+--------------
+INSERT INTO customer (CustomerID, FirstName, LastName, City, PhoneNumber, AgentID) VALUES (14, 'Peter', 'Griffens', 'Providence', '987-4567', 99)
+--------------
+
+--------------
+INSERT INTO purchasingInfo (CustomerID, ProductID, Quantity) VALUES (21, 99, 20)
+--------------
+
+--------------
+INSERT INTO purchasingInfo (CustomerID, ProductID, Quantity) VALUES (21, 12, 14)
+--------------
+
+--------------
+INSERT INTO purchasingInfo (CustomerID, ProductID, Quantity) VALUES (21, 66, 10)
+--------------
+
+--------------
+INSERT INTO purchasingInfo (CustomerID, ProductID, Quantity) VALUES (31, 99, 1)
+--------------
+
+--------------
+INSERT INTO purchasingInfo (CustomerID, ProductID, Quantity) VALUES (31, 12, 2)
+--------------
+
+--------------
+INSERT INTO purchasingInfo (CustomerID, ProductID, Quantity) VALUES (31, 78, 4)
+--------------
+
+--------------
+INSERT INTO purchasingInfo (CustomerID, ProductID, Quantity) VALUES (31, 66, 2)
+--------------
+
+--------------
+INSERT INTO purchasingInfo (CustomerID, ProductID, Quantity) VALUES (15, 66, 2)
+--------------
+
+--------------
+INSERT INTO purchasingInfo (CustomerID, ProductID, Quantity) VALUES (15, 78, 2)
+--------------
+
+--------------
+INSERT INTO purchasingInfo (CustomerID, ProductID, Quantity) VALUES (14, 66, 19)
+--------------
+
+--------------
+SELECT * FROM product
+--------------
+
+ProductID	Description	CostPerItem	QuantityOnHand
+11	Bike	150	200
+12	Socks	2	100
+66	Elbow pads	14	120
+78	Knee Pads	12	70
+8	Skates	225	80
+88	Roller Blades	75	89
+99	Helmet	29	30
+--------------
+SELECT * FROM salesAgent
+--------------
+
+AgentID	FirstName	LastName	WorkingCity	Commission
+11	Regis	Philbin	Boston	33
+12	Rosie	Cox	Ottawa	50
+22	Courtney	Cox	New York	25
+33	David	Letterman	Bedrock	100
+66	Rosie	ODonnell	Ottawa	100
+8	Christopher	Tam	Vancouver	80
+99	Hugh	Grant	Springfield	16
+--------------
+SELECT * FROM customer
+--------------
+
+CustomerID	FirstName	LastName	City	PhoneNumber	AgentID
+10	Barney	Rubble	Bedrock	777-1234	11
+12	Monty	Burns	Springfield	789-0000	99
+13	Super	Man	Krypto	888-1234	33
+14	Peter	Griffens	Providence	987-4567	99
+15	Fred	Flinstone	Bedrock	777-1234	11
+21	Homer	Simpson	Springfield	686-8956	99
+31	Sideshow	Bob	Springfield	686-5555	66
+--------------
+SELECT * FROM purchasingInfo
+--------------
+
+CustomerID	ProductID	Quantity
+21	99	20
+21	12	14
+21	66	10
+31	99	1
+31	12	2
+31	78	4
+31	66	2
+15	66	2
+15	78	2
+14	66	19
+--------------
+UPDATE customer SET FirstName = "Wonder Woman" WHERE FirstName = "Super" AND LastName = "Man"
+--------------
+
+--------------
+UPDATE purchasingInfo SET Quantity = 5 WHERE CustomerID = (SELECT CustomerID FROM customer WHERE FirstName = "Sideshow")
+--------------
+
+--------------
+UPDATE customer SET City = "Boston" WHERE AgentID = (SELECT AgentID FROM salesAgent WHERE FirstName = "Regis")
+--------------
+
+--------------
+SELECT * FROM product
+--------------
+
+ProductID	Description	CostPerItem	QuantityOnHand
+11	Bike	150	200
+12	Socks	2	100
+66	Elbow pads	14	120
+78	Knee Pads	12	70
+8	Skates	225	80
+88	Roller Blades	75	89
+99	Helmet	29	30
+--------------
+SELECT * FROM salesAgent
+--------------
+
+AgentID	FirstName	LastName	WorkingCity	Commission
+11	Regis	Philbin	Boston	33
+12	Rosie	Cox	Ottawa	50
+22	Courtney	Cox	New York	25
+33	David	Letterman	Bedrock	100
+66	Rosie	ODonnell	Ottawa	100
+8	Christopher	Tam	Vancouver	80
+99	Hugh	Grant	Springfield	16
+--------------
+SELECT * FROM customer
+--------------
+
+CustomerID	FirstName	LastName	City	PhoneNumber	AgentID
+10	Barney	Rubble	Boston	777-1234	11
+12	Monty	Burns	Springfield	789-0000	99
+13	Wonder Woman	Man	Krypto	888-1234	33
+14	Peter	Griffens	Providence	987-4567	99
+15	Fred	Flinstone	Boston	777-1234	11
+21	Homer	Simpson	Springfield	686-8956	99
+31	Sideshow	Bob	Springfield	686-5555	66
+--------------
+SELECT * FROM purchasingInfo
+--------------
+
+CustomerID	ProductID	Quantity
+21	99	20
+21	12	14
+21	66	10
+31	99	5
+31	12	5
+31	78	5
+31	66	5
+15	66	2
+15	78	2
+14	66	19
