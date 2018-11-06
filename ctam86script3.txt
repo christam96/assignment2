@@ -5,11 +5,39 @@
 -- specify which database to make changes to
 USE ctam86assign2db;
 
--- Query 1:
+-- Query 1: Show the description of all the products
 SELECT Description FROM product;
 
--- Query 2:
+-- Query 2: Show the city of all customers with no repeats
 SELECT DISTINCT City FROM customer;
 
--- Query 3:
+-- Query 3: Show all the data in the agent table, but show them in order of their cities
 SELECT * FROM salesAgent ORDER BY WorkingCity;
+
+-- Query 4: Show the first and last name of all customers from Springfield
+SELECT FirstName AND LastName FROM customer WHERE City = "Springfield";
+
+
+-- Query 5: List the last name of all customers who deal with Regis
+
+
+
+-- Query 6: List the description of any product with the letters "pad" or "Pad" in the description name
+
+
+-- Query 7: For any customer who has actually purchased products, list the last name of each customer, the description of each product they have purchase and the quantity they have purchased of that product
+
+
+-- Query 8: Find the total number of products purchased by Homer
+
+
+-- Query 9: For any customer who has actually purchased products, find the total number of products purchased by each customer, print out the first and last name of the customer and their total number of  purchases
+
+
+-- Query 10: List the descriptions and quantity on hand of any products that have not been purchased by anyone
+
+
+SELECT * FROM product;
+SELECT * FROM salesAgent;
+SELECT * FROM customer;
+SELECT * FROM purchasingInfo;
