@@ -38,9 +38,9 @@ INSERT INTO purchasingInfo (CustomerID, ProductID, Quantity) VALUES (31, 99, 1);
 INSERT INTO purchasingInfo (CustomerID, ProductID, Quantity) VALUES (31, 12, 2);
 INSERT INTO purchasingInfo (CustomerID, ProductID, Quantity) VALUES (31, 78, 4);
 INSERT INTO purchasingInfo (CustomerID, ProductID, Quantity) VALUES (31, 66, 2);
-INSERT INTO purchasingInfo (CustomerID, ProductID, Quantity) VALUES (14, 66, 2);
-INSERT INTO purchasingInfo (CustomerID, ProductID, Quantity) VALUES (14, 78, 2);
-INSERT INTO purchasingInfo (CustomerID, ProductID, Quantity) VALUES (15, 66, 19);
+INSERT INTO purchasingInfo (CustomerID, ProductID, Quantity) VALUES (15, 66, 2);
+INSERT INTO purchasingInfo (CustomerID, ProductID, Quantity) VALUES (15, 78, 2);
+INSERT INTO purchasingInfo (CustomerID, ProductID, Quantity) VALUES (14, 66, 19);
 
 -- show all data from each table to prove that inserts worked
 SELECT * FROM product;
