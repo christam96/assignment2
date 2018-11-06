@@ -1,9 +1,18 @@
+-- CS3319 Assignment 2: Script 1
+-- Student Name: Christopher Tam
+-- Student Number: 250803892
+
+-- specify which database to make changes to
 USE ctam86assign2db;
+
+-- read input from file provided to us
 LOAD DATA LOCAL INFILE './loaddatafall2018.txt' INTO TABLE product FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\n';
 
+-- inserts into product table
 INSERT INTO product (ProductID, Description, CostPerItem, QuantityOnHand) VALUES (66, 'Elbow pads', 14.25, 120);
 INSERT INTO product (ProductID, Description, CostPerItem, QuantityOnHand) VALUES (08, 'Skates', 225, 80);
 
+-- inserts into salesAgent table
 INSERT INTO salesAgent (AgentID, FirstName, LastName, WorkingCity, Commission) VALUES (99, 'Hugh', 'Grant', 'Springfield', 16);
 INSERT INTO salesAgent (AgentID, FirstName, LastName, WorkingCity, Commission) VALUES (22, 'Courtney', 'Cox', 'New York', 25);
 INSERT INTO salesAgent (AgentID, FirstName, LastName, WorkingCity, Commission) VALUES (66, 'Rosie', 'ODonnell', 'Ottawa', 100);
@@ -12,6 +21,7 @@ INSERT INTO salesAgent (AgentID, FirstName, LastName, WorkingCity, Commission) V
 INSERT INTO salesAgent (AgentID, FirstName, LastName, WorkingCity, Commission) VALUES (12, 'Rosie', 'Cox', 'Ottawa', 50);
 INSERT INTO salesAgent (AgentID, FirstName, LastName, WorkingCity, Commission) VALUES (08, 'Christopher', 'Tam', 'Vancouver', 80);
 
+-- inserts into customer table
 INSERT INTO customer (CustomerID, FirstName, LastName, City, PhoneNumber, AgentID) VALUES (21, 'Homer', 'Simpson', 'Springfield', '686-8956', 99);
 INSERT INTO customer (CustomerID, FirstName, LastName, City, PhoneNumber, AgentID) VALUES (31, 'Sideshow', 'Bob', 'Springfield', '686-5555', 66);
 INSERT INTO customer (CustomerID, FirstName, LastName, City, PhoneNumber, AgentID) VALUES (12, 'Monty', 'Burns', 'Springfield', '789-0000', 99);
@@ -20,6 +30,7 @@ INSERT INTO customer (CustomerID, FirstName, LastName, City, PhoneNumber, AgentI
 INSERT INTO customer (CustomerID, FirstName, LastName, City, PhoneNumber, AgentID) VALUES (10, 'Barney', 'Rubble', 'Bedrock', '777-1234', 11);
 INSERT INTO customer (CustomerID, FirstName, LastName, City, PhoneNumber, AgentID) VALUES (14, 'Peter', 'Griffens', 'Providence', '987-4567', 99);
 
+-- inserts into purchasingInfo table
 INSERT INTO purchasingInfo (CustomerID, ProductID, Quantity) VALUES (21, 99, 20);
 INSERT INTO purchasingInfo (CustomerID, ProductID, Quantity) VALUES (21, 12, 14);
 INSERT INTO purchasingInfo (CustomerID, ProductID, Quantity) VALUES (21, 66, 10);
@@ -31,15 +42,21 @@ INSERT INTO purchasingInfo (CustomerID, ProductID, Quantity) VALUES (14, 66, 2);
 INSERT INTO purchasingInfo (CustomerID, ProductID, Quantity) VALUES (14, 78, 2);
 INSERT INTO purchasingInfo (CustomerID, ProductID, Quantity) VALUES (15, 66, 19);
 
+-- show all data from each table to prove that inserts worked
 SELECT * FROM product;
 SELECT * FROM salesAgent;
 SELECT * FROM customer;
 SELECT * FROM purchasingInfo;
 
+-- change the name of the Super Man customer to be Wonder Woman
 UPDATE customer SET FirstName = "Wonder Woman" WHERE FirstName = "Super" AND LastName = "Man";
+-- change the data so that in every product that Sideshow purchase was a quantity of 5
 UPDATE purchasingInfo SET Quantity = 5 WHERE CustomerID = (SELECT CustomerID FROM customer WHERE FirstName = "Sideshow");
+-- change it so that every customer that Regis deals with comes from the city of Boston
 UPDATE customer SET City = "Boston" WHERE AgentID = (SELECT AgentID FROM salesAgent WHERE FirstName = "Regis");
 
+-- show all data from each table to show that updates worked
+SELECT * FROM product;
+SELECT * FROM salesAgent;
 SELECT * FROM customer;
 SELECT * FROM purchasingInfo;
-SELECT * FROM customer;
