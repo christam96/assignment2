@@ -39,7 +39,7 @@ SELECT Description, QuantityOnHand FROM product WHERE ProductID NOT IN (SELECT P
 SELECT Description, QuantityOnHand FROM product WHERE ProductID NOT IN (SELECT ProductID FROM purchasingInfo WHERE CustomerID = (SELECT CustomerID FROM customer WHERE FirstName = 'Fred' AND LastName = 'Flinstone'));
 
 -- Query 12: List the first and last name of any agent and customer where the agent deals with a customer from the same city as the agent.
-
+SELECT t1.FirstName, t1.LastName, t2.FirstName, t2.LastName FROM salesAgent t1 JOIN customer t2 ON t1.WorkingCity = t2.City;
 
 -- Query 13: List the total number of knee pads that have been purchase. Give the result a nice title.
 
